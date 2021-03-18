@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-db-config
+data:
+  MYSQL_DB_HOST: {{ .Values.mysql.main.dbHost | quote }}
+  MYSQL_DB_PORT: {{ .Values.mysql.main.dbPort | quote }}
+  MYSQL_DB_NAME: {{ .Values.mysql.main.dbName | quote }}
+  NOTIFIER_MYSQL_DB_HOST: {{ .Values.mysql.notifier.dbHost | quote }}
+  NOTIFIER_MYSQL_DB_PORT: {{ .Values.mysql.notifier.dbPort | quote }}
+  NOTIFIER_MYSQL_DB_NAME: {{ .Values.mysql.notifier.dbName | quote }}
+  NOTIFIER_SCAN_PERIOD: {{ .Values.notifier.scanPeriod | quote }}
+  ELASTICSEARCH_HOST: {{ .Values.elasticsearch.esHost | quote }}
+  ELASTICSEARCH_PORT: {{ .Values.elasticsearch.esPort | quote }}
+  spring.profiles.active: {{ .Values.mysql.spring | quote }}

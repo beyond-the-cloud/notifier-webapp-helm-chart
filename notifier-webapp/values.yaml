@@ -1,0 +1,57 @@
+image:
+  repository: bboysticker/notifier-webapp
+  name: notifier-webapp
+
+imagePullSecrets: docker-hub
+port: 8080
+
+readinessProbe:
+  path: /actuator/health
+  initialDelaySeconds: 45
+  periodSeconds: 5
+
+livenessProbe:
+  path: /v1/helloworld
+  initialDelaySeconds: 60
+  periodSeconds: 5
+
+resources:
+  memory: 256Mi
+  cpu: 2000m
+
+mysql:
+  spring: prod
+  main:
+    dbHost: xinyu-main-1.cvefazkbfyp3.us-east-1.rds.amazonaws.com
+    dbPort: 3306
+    dbName: csye7125
+    dbUsername: root
+    dbPassword: thepassword
+  notifier:
+    dbHost: xinyu-notifier-1.cvefazkbfyp3.us-east-1.rds.amazonaws.com
+    dbPort: 3306
+    dbName: notifier
+    dbUsername: root
+    dbPassword: thepassword
+
+elasticsearch:
+  esHost: elasticsearch-master.default
+  esPort: 9200
+
+deployment:
+  replicas: 1
+  progressDeadlineSeconds: 600
+  minReadySeconds: 30
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 0
+  type: RollingUpdate
+  svc:
+    port: 80
+
+aws:
+  accessKeyId: 
+  secretKey: 
+
+notifier:
+  scanPeriod: 300000  # 1000 * 60 * 5 = 300000 milis = 5 mins
