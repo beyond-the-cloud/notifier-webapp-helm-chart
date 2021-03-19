@@ -1,5 +1,5 @@
 image:
-  repository: bboysticker/notifier-webapp
+  repository: bh7cw/notifier-webapp
   name: notifier-webapp
 
 imagePullSecrets: docker-hub
