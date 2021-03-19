@@ -22,17 +22,17 @@ resources:
 mysql:
   spring: prod
   main:
-    dbHost: xinyu-main-1.cvefazkbfyp3.us-east-1.rds.amazonaws.com
+    dbHost: rds.cvefazkbfyp3.us-east-1.rds.amazonaws.com
     dbPort: 3306
     dbName: csye7125
     dbUsername: root
-    dbPassword: thepassword
+    dbPassword: MysqlPwd123
   notifier:
-    dbHost: xinyu-notifier-1.cvefazkbfyp3.us-east-1.rds.amazonaws.com
+    dbHost: rdsnotifier.cvefazkbfyp3.us-east-1.rds.amazonaws.com
     dbPort: 3306
     dbName: notifier
     dbUsername: root
-    dbPassword: thepassword
+    dbPassword: MysqlPwd123
 
 elasticsearch:
   esHost: elasticsearch-master.default
