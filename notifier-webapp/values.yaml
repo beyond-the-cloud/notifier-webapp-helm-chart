@@ -19,6 +19,12 @@ resources:
   memory: 256Mi
   cpu: 500m
 
+hpa:
+  minReplicas: 1
+  maxReplicas: 2
+  target:
+    averageUtilization: 5
+
 mysql:
   spring: prod
   main:
@@ -39,7 +45,7 @@ elasticsearch:
   esPort: 9200
 
 deployment:
-  replicas: 1
+  replicas: 2
   progressDeadlineSeconds: 600
   minReadySeconds: 30
   rollingUpdate:
@@ -55,8 +61,8 @@ deployment:
     port: 80
 
 aws:
-  accessKeyId: 
-  secretKey: 
+  accessKeyId: AKIA5EQQLUEDJMT3PDGV
+  secretKey: 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
 
 notifier:
   scanPeriod: 300000  # 1000 * 60 * 5 = 300000 milis = 5 mins
