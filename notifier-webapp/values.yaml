@@ -12,8 +12,8 @@ readinessProbe:
 
 livenessProbe:
   path: /v1/helloworld
-  initialDelaySeconds: 60
-  periodSeconds: 5
+  initialDelaySeconds: 120
+  periodSeconds: 10
 
 resources:
   memory: 256Mi
@@ -28,13 +28,13 @@ hpa:
 mysql:
   spring: prod
   main:
-    dbHost: rds.cvefazkbfyp3.us-east-1.rds.amazonaws.com
+    dbHost: 35.196.0.248
     dbPort: 3306
     dbName: csye7125
     dbUsername: root
     dbPassword: MysqlPwd123
   notifier:
-    dbHost: rdsnotifier.cvefazkbfyp3.us-east-1.rds.amazonaws.com
+    dbHost: 34.74.172.135
     dbPort: 3306
     dbName: notifier
     dbUsername: root
